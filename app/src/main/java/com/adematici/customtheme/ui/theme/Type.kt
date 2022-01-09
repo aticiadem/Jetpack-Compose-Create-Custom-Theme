@@ -1,10 +1,13 @@
 package com.adematici.customtheme.ui.theme
 
 import androidx.compose.material.Typography
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.adematici.customtheme.R
 
 // Set of Material typography styles to start with
 val Typography = Typography(
@@ -26,3 +29,32 @@ val Typography = Typography(
     )
     */
 )
+
+private val against = FontFamily(
+    Font(R.font.against, FontWeight.Normal)
+)
+
+data class TypographyPalette(
+    val h1: TextStyle = TextStyle(
+        fontFamily = against,
+        fontWeight = FontWeight.Normal,
+        fontSize = 24.sp
+    ),
+    val subtitle: TextStyle = TextStyle(
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+    val body: TextStyle = TextStyle(
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+    val button: TextStyle = TextStyle(
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+)
+
+internal val LocalTypography = staticCompositionLocalOf { TypographyPalette() }
